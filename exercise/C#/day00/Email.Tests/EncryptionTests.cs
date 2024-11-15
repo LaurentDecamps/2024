@@ -32,6 +32,12 @@ public class EncryptionTests
                 ) == plainText
         ).QuickCheckThrowOnFailure();
 
+    [Fact]
+    public Task DecryptEncryptedEmailText()
+    {
+        return Verify(_encryption.Decrypt(FileUtils.LoadFile("EncryptedEmail.txt")));
+    }
+
     private static string ConvertKey(string key)
         => Convert.ToBase64String(
             SHA256.HashData(Encoding.UTF8.GetBytes(key))
@@ -41,4 +47,6 @@ public class EncryptionTests
         => Convert.ToBase64String(
             MD5.HashData(Encoding.UTF8.GetBytes(iv))
         );
+
+    
 }
