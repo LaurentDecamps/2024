@@ -141,3 +141,5 @@ ENV/
 env.bak/
 venv.bak/
 *.cache
+/exercise/C#/day00/.vs/Email
+*.ncrunchsolution
